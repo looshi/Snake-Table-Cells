@@ -1,102 +1,93 @@
 @charset "utf-8";
-body
-{
-	background-color:#FFFFFF;
-}
-.boxTable
-{
-	margin:0px;
-	padding:0px;
-	 
+
+body {
+  background-color: #FFFFFF;
 }
 
-.boxCell
-{
- 
-	/*cursor:pointer;*/
-
- 	 
-	background-color:#006699;
-	width:7px;
-	height:7px;
- 
-	  
-	padding:0px;
-}
-
-#controlPanel
-{
-	float:left;
-	width:300px;
-	 
-}
-
-.readOut
-{
-	/*cursor:pointer;*/
-	
-	 font-size:16px;
-	 font-family:Arial, Helvetica, sans-serif;
-	 margin:10px 20px;
-	 margin-left:20px;
-     color:#666666;
-}
-
- .directions
-{
-	 font-size:11px;
-	 font-family:Arial, Helvetica, sans-serif;
-	 margin:20px;
-	 color:#666666;
-	 width:280px;
-}
- 
- 
-.saveLevel
-{
-	 font-size:10px;
-	 font-family:sans-serif;
-	 margin:20px;
-	 color:#666666;
-	 width:280px;
-}
-
- 
-.gridAnimation
-{
-  float:right;
-	 
-}
-
-.buttonContainer
-{
-	text-align:center;
-	font-size:34px;
-}
-
-.buttonContainer p
-{
-	margin-top:6px;
-}
-
-a.button:link,a.button:visited
-{
-	display:block;
-	background-image:url(images/buttonBG.png);
-	background-repeat:no-repeat;
-	width:214px;
-	height:62px;
-	overflow:hidden;
-	background-position:top;
-	text-decoration:none;
-	color:#0066CC;
-	outline: 0;
+.boxTable {
+  margin: 0px;
+  padding: 0px;
 
 }
 
-a.button:hover
-{
- 
-	background-position: 0 -62px;
+.boxCell {
+
+  /*cursor:pointer;*/
+
+
+  background-color: #006699;
+  width: 7px;
+  height: 7px;
+
+
+  padding: 0px;
+}
+
+#controlPanel {
+  float: left;
+  width: 300px;
+
+}
+
+.readOut {
+  /*cursor:pointer;*/
+
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 20px;
+  margin-left: 20px;
+  color: #666666;
+}
+
+.directions {
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  color: #666666;
+  width: 280px;
+}
+
+
+.saveLevel {
+  font-size: 10px;
+  font-family: sans-serif;
+  margin: 20px;
+  color: #666666;
+  width: 280px;
+}
+
+
+.gridAnimation {
+  float: right;
+
+}
+
+.buttonContainer {
+  text-align: center;
+  font-size: 34px;
+}
+
+.buttonContainer p {
+  margin-top: 6px;
+}
+
+a.button:link,
+a.button:visited {
+  display: block;
+  background-image: url(./buttonBG.png);
+  background-repeat: no-repeat;
+  width: 214px;
+  height: 62px;
+  overflow: hidden;
+  background-position: top;
+  text-decoration: none;
+  color: #0066CC;
+  outline: 0;
+
+}
+
+a.button:hover {
+
+  background-position: 0 -62px;
 
 }
