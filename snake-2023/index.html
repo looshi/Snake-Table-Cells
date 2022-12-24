@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Snake v00.002</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Looshi snake game">
+  <script src="snake.js" type="text/javascript"></script>
+</head>
+<style>
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: monospace, arial, sans-serif;
+  }
+
+  /* the main game board is the only table */
+  table {
+    width: 100%;
+    height: calc(100% - 200px);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+
+  }
+
+  #wrap {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+  }
+
+  header {
+    background: white;
+    /* height: 64px; */
+    padding: 8px;
+    /* display: flex; */
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    width: 50px;
+  }
+
+
+  footer {
+    height: 24px;
+    background: white;
+  }
+
+  #dpad {
+    /* background: rgb(252, 248, 152); */
+    height: 4000px;
+    width: 4000px;
+    opacity: 0.5;
+    position: absolute;
+    bottom: -1900px;
+    left: calc(50% - 2000px);
+    /* left: -75%; */
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    transform: rotate(17deg) skewX(-57deg)
+  }
+
+  #dpad div {
+    width: 1990px;
+    height: 1995px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    touch-action: manipulation;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+  }
+
+  #dpad div:active {
+    background: orange;
+  }
+
+  /* #up {
+    background: red;
+  }
+
+  #right {
+    background: green;
+  }
+
+  #down {
+    background: blue;
+  }
+
+  #left {
+    background: orange;
+  } */
+
+</style>
+
+<body>
+  <div id="wrap">
+    <header>
+      cats
+      <div id="lastDirection" class="readOut"> </div>
+      <div id="points" class="readOut"> </div>
+      <div id="levelOutput" class="readOut"> </div>
+      <div id="livesOutput" class="readOut"> </div>
+      <div id="hallpassOutput" class="readOut"> </div><br />
+      <a class="buttonContainer href=" #" id="start" class="button">
+        Start Game
+      </a>
+    </header>
+
+    <div id="dpad">
+      <div id="up"></div>
+      <div id="right"></div>
+      <div id="left"></div>
+      <div id="down"></div>
+    </div>
+
+    <footer></footer>
+
+    <div id="gridAnimation"> </div>
+    <div id="iconOutput"> </div>
+    <div id="output"> </div>
+
+  </div>
+
+</body>
+
+</html>
