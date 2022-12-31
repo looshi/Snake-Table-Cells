@@ -38,22 +38,27 @@
   }
 
   footer {
+
     height: 200px;
     background: white;
     display: flex;
     bottom: 0;
     position: absolute;
-    /* align-items: baseline; */
     justify-content: space-between;
     width: 100%;
   }
 
   #score-area {
-    width: 29%;
+    width: 33%;
+    box-sizing: border-box;
+    padding: 8px;
+    display: flex;
+  }
+
+  .score-area-inner {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 8px 0 8px 8px;
   }
 
   #start {
@@ -63,12 +68,14 @@
     text-align: center;
     cursor: pointer;
     width: 100%;
+    display: block;
+    box-sizing: border-box;
   }
 
 
 
   #dpad {
-    width: 70%;
+    width: 66%;
     height: 100%;
     color: #27739a;
   }
@@ -126,19 +133,93 @@
     touch-action: manipulation;
   }
 
+  .about-wide {
+    display: block;
+  }
+
+  .about-narrow {
+    display: none;
+  }
+
+  @media (min-aspect-ratio: 7/5) {
+    #wrap {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    footer {
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      width: 40%;
+      height: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    #score-area {
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    #start {
+      margin-top: 8px;
+    }
+
+    #dpad {
+      width: 100%;
+      height: initial;
+    }
+
+    table {
+      position: relative;
+      width: 60%;
+      height: 100%;
+    }
+
+    .about-wide {
+      display: none;
+    }
+
+    .about-narrow {
+      display: block;
+    }
+  }
+
+  @media (min-aspect-ratio: 9/5) {
+    #score-area {
+      font-size: 18px;
+    }
+
+
+  }
+
+  @media (max-width: 320px) {
+    #score-area {
+      font-size: 18px;
+    }
+  }
+
 </style>
 
 <body>
   <div id="wrap">
     <footer>
       <div id="score-area">
-        <div id="points" class="readOut"> </div>
-        <div id="levelOutput" class="readOut"> </div>
-        <div id="livesOutput" class="readOut"> </div>
-        <div id="hallpassOutput" class="readOut"> </div>
-        <a class="buttonContainer href=" #" id="start" class="button">
-          Start
-        </a>
+        <div class="score-area-inner">
+          <div id="points" class="readOut"> </div>
+          <div id="levelOutput" class="readOut"> </div>
+          <div id="livesOutput" class="readOut"> </div>
+          <div id="hallpassOutput" class="readOut"> </div>
+          <a class="buttonContainer href=" #" id="start" class="button">
+            Start
+          </a>
+          <a class="about-wide" href="https://github.com/looshi/Snake-Table-Cells">About</a>
+        </div>
+        <a class="about-narrow" href="https://github.com/looshi/Snake-Table-Cells">About</a>
       </div>
       <div id="dpad">
         <div id="up">&#9650;</div>
@@ -146,17 +227,14 @@
           <div id="left">&#9664;</div>
           <div id="right">&#9654;</div>
         </div>
-
         <div id="down">&#9660;</div>
       </div>
     </footer>
-
   </div>
-
-  <div id="gridAnimation"> </div>
-  <div id="iconOutput"> </div>
-  <div id="output"> </div>
-
+  <!-- 100% privacy friendly analytics -->
+  <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""
+      referrerpolicy="no-referrer-when-downgrade" /></noscript>
 </body>
 
 </html>

@@ -52,7 +52,6 @@ var LIVES_COUNT = 3;
 var livesOutput;
 var GRID_COLOR = "#006699";
 var SNAKE_COLOR = "rgb(225, 225, 225)";
-var iconOutput;
 
 var SPACE_BAR_DEPRESSED = false;
 var SPACE_BAR_SWITCH = true;
@@ -65,10 +64,6 @@ function init() {
   scoreDiv = document.getElementById("points");
   scoreDiv.innerHTML = "score: 0 ";
   scoreDiv.style.color = "#cccccc";
-
-  iconOutput = document.getElementById("iconOutput");
-  iconOutput.style.color = "#ff0000";
-  iconOutput.innerHTML = "S S";
 
   levelOutput = document.getElementById("levelOutput");
   levelOutput.style.color = "#a1a1a1";
@@ -89,8 +84,6 @@ function init() {
   dpad.addEventListener('touchstart', (e) => e.preventDefault());
   dpad.addEventListener('touchend', (e) => e.target.click());
 
-
-  document.getElementById("gridAnimation").style.width = window.innerWidth;
 
 
 
@@ -139,7 +132,7 @@ function nextLevel() {
   currentTailLength = 30;
 
   if (LEVEL > 1) {
-    document.body.removeChild(tbl);
+    document.getElementById("wrap").removeChild(tbl);
     tbl = null;
     delete tbl;
   }
@@ -196,7 +189,7 @@ function resume() {
 
 function replay() {
   LEVEL = 0;
-  document.body.removeChild(tbl);
+  document.getElementById("wrap").removeChild(tbl);
   tbl = null;
   delete tbl;
   init();
@@ -321,7 +314,6 @@ function goFaster() {
   if (SPACE_BAR_DEPRESSED) {
     clearInterval(interval);
     interval = setInterval(moveSnake, 40);
-    //document.getElementById("output").innerHTML += "goFaster";
   }
   SPACE_BAR_SWITCH = false;
 }
@@ -330,7 +322,6 @@ function goNormalSpeed() {
   SPACE_BAR_SWITCH = true;
   clearInterval(interval);
   interval = setInterval(moveSnake, 100 - (10 * LEVEL));
-  //document.getElementById("output").innerHTML += "goNormalSpeed";
 }
 
 
@@ -425,11 +416,6 @@ function changeDirection(e) {
 function reduceMenAmount() {
 
   document.onkeyup = null;
-
-  var str = "&nbsp;";
-  for (var i = 0; i < LIVES_COUNT - 1; i++)
-    str += "S ";
-  iconOutput.innerHTML = str;
 
   tail[tail.length - 1].style.backgroundColor = FRUIT_COLOR;
   clearInterval(interval);
@@ -691,6 +677,6 @@ function createBlocks() {
   delete row;
   tbl.appendChild(tblBody);
   console.log('adding table dave', tbl);
-  document.body.appendChild(tbl);
+  document.getElementById("wrap").appendChild(tbl);
 }
 
