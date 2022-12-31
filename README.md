@@ -1,5 +1,7 @@
 # Snake
 
+Classic nokia style snake game.
+
 Play Desktop Version: https://looshi.github.io/snake/snake-desktop
 
 ![Alt snake game desktop](https://github.com/looshi/Snake-Table-Cells/blob/master/snake-desktop/snake-desktop.png?raw=true)
@@ -8,7 +10,6 @@ Play Mobile Version: https://looshi.github.io/snake/snake-mobile
 
 ![Alt snake game](https://github.com/looshi/Snake-Table-Cells/blob/master/snake-mobile/snake-mobile.png?raw=true)
 
-Classic nokia style snake game using table cells.
 
 ## How To Play
 Collect each red fruit square to advance to the next level.  Avoid walls and yourself.  On mobile, touch anywhere on the game board to use a "pass" -- this will cut a hole through the walls and allow you to pass through.  On desktop, any key besides arrows will allow you to use a "pass".
