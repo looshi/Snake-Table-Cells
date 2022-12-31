@@ -63,7 +63,7 @@ function init() {
 
   //visual readout divs
   scoreDiv = document.getElementById("points");
-  scoreDiv.innerHTML = "score : 0 ";
+  scoreDiv.innerHTML = "score: 0 ";
   scoreDiv.style.color = "#cccccc";
 
   iconOutput = document.getElementById("iconOutput");
@@ -78,7 +78,7 @@ function init() {
 
   LIVES_COUNT = 3
   livesOutput = document.getElementById("livesOutput");
-  livesOutput.innerHTML = "lives : " + LIVES_COUNT;
+  livesOutput.innerHTML = "lives: " + LIVES_COUNT;
   livesOutput.style.color = "#ff0000";
 
   // 2023
@@ -86,8 +86,8 @@ function init() {
   dpad = document.getElementById('dpad');
   // This convoluded setup prevents the 300ms delay on touchend
   dpad.addEventListener('click', onTouchEvent);
-  // dpad.addEventListener('touchstart', (e) => e.preventDefault());
-  dpad.addEventListener('touchstart', (e) => e.target.click());
+  dpad.addEventListener('touchstart', (e) => e.preventDefault());
+  dpad.addEventListener('touchend', (e) => e.target.click());
 
 
   document.getElementById("gridAnimation").style.width = window.innerWidth;
@@ -123,13 +123,13 @@ function nextLevel() {
   document.onkeydown = changeDirection;
 
   LEVEL++;
-  levelOutput.innerHTML = "level : " + LEVEL;
+  levelOutput.innerHTML = "level: " + LEVEL;
 
   FRUIT_COLOR = "rgb(255, 0, 0)";
   FRUIT_AMOUNT = LEVEL;
 
   HALLPASS_AMOUNT = 3;
-  hallpassOutput.innerHTML = "hallpasses : " + HALLPASS_AMOUNT;
+  hallpassOutput.innerHTML = "passes: " + HALLPASS_AMOUNT;
 
   xOffset = 0;
   yOffset = 0;
@@ -145,6 +145,8 @@ function nextLevel() {
   }
 
   tbl = document.createElement("table");
+  // use a pass by touching anywhere on the snake game area
+  tbl.addEventListener('touchend', hallPass);
   tbl.cellSpacing = "0";
   tblBody = document.createElement("tbody");
 
@@ -174,20 +176,20 @@ function startGame(e) {
   DOWN = true;
   console.log('dave start game');
   interval = setInterval(moveSnake, 100);
-  startButton.innerText = "pause";
+  startButton.innerText = "Pause";
   startButton.onmousedown = pause;
 }
 
 function pause() {
   document.onkeyup = null;
   clearInterval(interval);
-  startButton.innerText = "play";
+  startButton.innerText = "Resume";
   startButton.onmousedown = resume;
 }
 
 function resume() {
   document.onkeyup = onKeyUp;
-  startButton.innerText = "pause";
+  startButton.innerText = "Pause";
   startButton.onmousedown = pause;
   interval = setInterval(moveSnake, 100 - (10 * LEVEL));
 }
@@ -210,7 +212,7 @@ function gameOver() {
   document.getElementById("points").style.color = "#ff0000";
   clearInterval(interval);
   radiate(tbl, 2, posX, posY, "#ff0000");
-  startButton.innerText = "replay";
+  startButton.innerText = "Play Again";
   startButton.onmousedown = replay;
 }
 
@@ -283,7 +285,6 @@ function radiate(_surface, _multiplier, _x, _y, _color) {
 /*          allows you to pass through objects once per level            */
 /*************************************************************************/
 
-
 function hallPass() {
 
   var missileX = 0;
@@ -291,7 +292,7 @@ function hallPass() {
 
   if (HALLPASS_AMOUNT > 0) {
     HALLPASS_AMOUNT--;
-    hallpassOutput.innerHTML = "hallpasses : " + HALLPASS_AMOUNT;
+    hallpassOutput.innerHTML = "passes: " + HALLPASS_AMOUNT;
     if (LEFT) {
 
       drawRect(tbl, 0, posY, posX, 1, GRID_COLOR);
@@ -350,9 +351,7 @@ function onTouchEvent(e) {
     down: 40,
   }[e.target.id];
 
-  lastDirection.innerText = e.target.id + touchConvertedToKey + 'dave';
 
-  console.log('change direction', touchConvertedToKey);
   changeDirection({ which: touchConvertedToKey })
 }
 
@@ -435,7 +434,7 @@ function reduceMenAmount() {
   tail[tail.length - 1].style.backgroundColor = FRUIT_COLOR;
   clearInterval(interval);
   setTimeout(resumeMoveSnake, 700);
-  livesOutput.innerHTML = "lives : " + LIVES_COUNT;
+  livesOutput.innerHTML = "lives: " + LIVES_COUNT;
 
   if (LIVES_COUNT == 0) {
     gameOver();
@@ -544,9 +543,9 @@ function moveSnake(e) {
 
 
 
-  currentScore += 10;
+  currentScore += 1;
   if (tail[1])
-    document.getElementById("points").innerHTML = "score : " + currentScore;
+    document.getElementById("points").innerHTML = "score:&nbsp;" + currentScore;
 
 }
 
