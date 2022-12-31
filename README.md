@@ -2,11 +2,11 @@
 
 Play Desktop Version: https://looshi.github.io/snake/snake-desktop
 
-![Alt snake game desktop](https://looshi.github.io/snake/snake.png)
+![Alt snake game desktop](https://github.com/looshi/Snake-Table-Cells/blob/master/snake-desktop/snake-desktop.png?raw=true)
 
 Play Mobile Version: https://looshi.github.io/snake/snake-mobile
 
-![Alt snake game](https://looshi.github.io/snake/snake.png)
+![Alt snake game](https://github.com/looshi/Snake-Table-Cells/blob/master/snake-mobile/snake-mobile.png?raw=true)
 
 Classic nokia style snake game using table cells.
 
